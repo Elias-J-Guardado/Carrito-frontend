@@ -8,12 +8,7 @@ const vaciarCarrito = document.querySelector('#vaciar-carrito')
 const comprar = document.querySelector('#comprar')
 let productosCarrito = [];
 
-document.addEventListener('DOMContentLoaded', () => {
-    cargarAddEventListeners();
-   
-})
-
-
+cargarAddEventListeners();
 
 function cargarAddEventListeners() {
     listaLibros.addEventListener('click', agregarLibro);
@@ -25,7 +20,12 @@ function cargarAddEventListeners() {
     vaciarCarrito.addEventListener('click', ()=>{
         productosCarrito = [];
         limpiarHtml();
+        SincStorage();
     })
+
+    document.addEventListener('DOMContentLoaded', () =>{
+        llamarLocalStorage();
+    });
 
      abrirModal.addEventListener('click', () => {
         modal.showModal();
@@ -99,6 +99,15 @@ function leerDatosLibro(libro) {
     carritoHTLM();
 }
 
+function SincStorage() {
+    localStorage.setItem('producto', JSON.stringify(productosCarrito))
+}
+
+function llamarLocalStorage() {
+    productosCarrito = JSON.parse(localStorage.getItem('producto') || []);
+    carritoHTLM();
+}
+
 function carritoHTLM() {
     limpiarHtml();
 
@@ -119,6 +128,7 @@ function carritoHTLM() {
         contenedorCarrito.appendChild(row);
 
     });
+    SincStorage();
 }
 
 function limpiarHtml() {

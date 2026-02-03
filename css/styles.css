@@ -4,6 +4,74 @@ body,html{
     font-family: 'Segoe UI', sans-serif;
 }
 
+@media (max-width: 480px){
+    .card,
+    .card img{
+        max-width: 100%;
+    }
+
+    .card bottom,
+    .btn-action{
+        width: 100%;
+        text-align: center;
+    }
+
+    .carrito-btn i {
+        font-size: 1.3rem;
+    }
+
+    footer{
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero{
+        padding: 0 1rem;
+        text-align: center;
+        align-items: center;
+    }
+    .hero-content{
+        max-width: 100%;
+    }
+
+    .nav{
+        right: 1rem;
+        top: 1rem;
+    }
+
+    .productos .card-container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card,
+    .card img {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .card{
+        padding: 1rem;
+    }
+
+    .modal{
+        max-width: 90%;
+        padding: 1.5rem;
+    }
+
+    table th,
+    table td{
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+
+    .tbody-scroll{
+        max-height: 200px;
+    }
+
+}
+
 .hero{
     display: flex;
     background-image: url(/img/banner.png);
